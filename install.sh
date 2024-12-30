@@ -46,3 +46,42 @@ source ~/.zshrc
 
 
 
+# 安装google和驱动
+cat << "EOF"
+                              _
+  _____  ____   ____   ____ | | ____
+ / ____|/ __ \ / __ \ / __ \| |/ ___|
+| |  __| |  | | |  | | |  | | | |___
+| | |_ | |  | | |  | | |  | | |  ___|
+| |__| | |__| | |__| | |__| | | |___
+ \_____|\____/ \____/ \____/|_|\____|
+
+EOF
+
+# 下载 Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+# 安装必要的依赖
+sudo apt install libappindicator1 libindicator7 libxss1 xdg-utils -y
+
+# 强制安装依赖
+sudo apt -f install -y
+
+# 安装 Chrome
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+# 清理下载文件
+rm google-chrome-stable_current_amd64.deb
+
+# 驱动
+wget https://storage.googleapis.com/chrome-for-testing-public/128.0.6613.119/linux64/chromedriver-linux64.zip
+unzip chromedriver-linux64.zip
+cd chromedriver-linux64 
+sudo mv chromedriver /usr/bin
+
+# 清理下载文件
+cd ..
+rm chromedriver-linux64.zip chromedriver-linux64
+
+
+
