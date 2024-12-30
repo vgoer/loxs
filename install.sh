@@ -85,3 +85,6 @@ rm chromedriver-linux64.zip chromedriver-linux64
 
 
 
+# 子域名安装工具
+# subfinder
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
