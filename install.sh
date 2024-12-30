@@ -1,8 +1,8 @@
 #!/bin/bash
-#|---/ /+--------------------------+---/ /|#
-#|--/ /-| filter installation script |--/ /-|#
+#|---/ /+--------------------------+-----/ /|#
+#|--/ /-|    installation script     |--/ /-|#
 #|-/ /--|        安装脚本             |-/ /--|#
-#|/ /---+--------------------------+/ /---|#
+#|/ /---+---------------------------+/ /---|#
 
 cat << "EOF"
 
@@ -19,3 +19,30 @@ cat << "EOF"
 -------------------------------------------------
 
 EOF
+
+
+
+# 安装基本工具
+cat << "EOF"
+                _         _       _ _
+ ___ ___ ___   |_|___ ___| |_ ___| | |
+| . |  _| -_|  | |   |_ -|  _| .'| | |
+|  _|_| |___|  |_|_|_|___|_| |__,|_|_|
+|_|
+
+EOF
+sudo apt update -y
+sudo apt install golang jq git python3 python3-pip pipx -y
+
+# 将 Go 环境变量配置追加到 .zshrc 文件
+cat << 'EOF' >> ~/.zshrc
+
+# Go 环境变量配置
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+EOF
+source ~/.zshrc
+
+
+
